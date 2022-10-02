@@ -4,29 +4,38 @@ volumes:
   db-data:
 
 services:
+  # 7.12 追加
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - target: 8025
+        published: ${MAILHOG_PUBLISHED_PORT:-8025}
+        protocol: tcp
+        mode: host
+
   php-cli: # Web server for remote debug on PhpStorm.
     build: ./docker
     volumes:
-      - ./prj:/var/www/html/
+      - ./src/sample:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
     container_name: php-cli
     depends_on:
       - postgres
-    restart: always
+    # restart: always
 
   web:
     build: ./docker
     ports:
       - 80:80
     volumes:
-      - ./prj:/var/www/html/
+      - ./src/sample:/var/www/html/
       - ./docker/php.ini:/usr/local/etc/php/php.ini
     working_dir: /var/www/html
-    container_name: web
+    container_name: myapp_web
     depends_on:
       - postgres
-    restart: always
+    # restart: always
   
   postgres:
     image: postgres:10.8
@@ -41,7 +50,7 @@ services:
       POSTGRES_DB: postgres
     hostname: postgres
     container_name: postgres
-    restart: always
+    # restart: always
 
   pgadmin4:
     image: dpage/pgadmin4:4.2
@@ -56,4 +65,16 @@ services:
     container_name: pgadmin4
     depends_on:
       - postgres
-    restart: always
+    # restart: always
+
+  # #メールサーバのコンテナ
+  # mail:
+  #   image: mailhog/mailhog
+  #   container_name: mailhog
+  #   ports:
+  #     - "8025:8025"
+  #   environment:
+  #     MH_STORAGE: maildir
+  #     MH_MAILDIR_PATH: /tmp
+  #   volumes:
+  #     - maildir:/tmp

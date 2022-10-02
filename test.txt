@@ -1,0 +1,37 @@
+9083d81372c545c9b02b769e9ac8e2db
+7122b024cbbb4083a3ea5bbfe241df67
+
+echo -n {client_id}:{Client_Secret} | base64
+echo -n 9083d81372c545c9b02b769e9ac8e2db:7122b024cbbb4083a3ea5bbfe241df67 | base64
+
+echo -n 9083d81372c545c9b02b769e9ac8e2db:7122b024cbbb4083a3ea5bbfe241df67 | base64
+
+OTA4M2Q4MTM3MmM1NDVjOWIwMmI3NjllOWFjOGUyZGI6NzEyMmIwMjRjYmJiNDA4M2EzZWE1YmJmZTI0MWRmNjc=
+
+
+curl -X "POST" -H "Authorization: Basic OTA4M2Q4MTM3MmM1NDVjOWIwMmI3NjllOWFjOGUyZGI6NzEyMmIwMjRjYmJiNDA4M2EzZWE1YmJmZTI0MWRmNjc=" \
+-d grant_type=client_credentials https://accounts.spotify.com/api/token
+
+
+{"access_token":"BQAAbBMyYDVWWc8QbMPJYJRkUdMDwLvvgQMPBnJTOv2sJxCg2FP-RZsiCKUDY-Se3b8eqxpjGPDoH04HZW3r3Lsa2AP6gTHpjuW--AuyfLdsvAQMktg","token_type":"Bearer","expires_in":3600}
+
+curl -H "Authorization: Bearer BQAAbBMyYDVWWc8QbMPJYJRkUdMDwLvvgQMPBnJTOv2sJxCg2FP-RZsiCKUDY-Se3b8eqxpjGPDoH04HZW3r3Lsa2AP6gTHpjuW--AuyfLdsvAQMktg"  \
+GET https://api.spotify.com/v1/artists/1O8CSXsPwEqxcoBE360PPO
+
+- localstorage
+- modal
+- form
+- json
+
+
+[
+    ['no' => 1, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 2, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 3, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 4, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 5, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 6, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 7, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 8, 'album_id' => 1, 'title' => '', 'comment' => ''],
+    ['no' => 9, 'album_id' => 1, 'title' => '', 'comment' => ''],
+]

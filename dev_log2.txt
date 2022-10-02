@@ -1,0 +1,15 @@
+一からやり直し
+composer create-project laravel/laravel sample
+yml修正
+
+jetstreamを入れる前に、viteの手順をやってみる
+https://laravel-vite.dev/guide/extra-topics/inertia.html#overview
+npx @preset/cli apply laravel:inertia
+errになるのでできない
+
+jetstreamを入れるところから始める
+composer require laravel/jetstream
+inertiaもいれる
+php artisan jetstream:install inertia
+
+ここまで問題なさそう
